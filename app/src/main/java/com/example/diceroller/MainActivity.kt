@@ -9,6 +9,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var diceImage: ImageView
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener {
             rollDice()
-       }
+        }
+        diceImage = findViewById(R.id.dice_image)
     }
 
     private fun rollDice() {
@@ -30,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             6 -> R.drawable.dice_6
             else -> R.drawable.dice_6
         }
-        val resultImage: ImageView = findViewById(R.id.dice_image)
-        resultImage.setImageResource(drawableResource)
+        diceImage.setImageResource(drawableResource)
     }
 }
